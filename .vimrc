@@ -24,6 +24,7 @@ set smartindent
 set grepprg=ack
 let mapleader = ","
 set hlsearch
+let laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let mapleader = "\<Space>"
 set clipboard=unnamed

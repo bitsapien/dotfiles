@@ -1,0 +1,13 @@
+windows:
+  - name: faces
+    root: ~/mysites/faces
+    layout: main-vertical
+    panes:
+      - commands:
+        - rvm use '2.3.0'
+        - foreman start
+      - commands:
+        - rvm use '2.3.0'
+        - rails c
+      - commands:
+        - subl .

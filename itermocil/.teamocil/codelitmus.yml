@@ -1,0 +1,8 @@
+windows:
+   - name: codephod2
+     root: ~/mysites/codephod2
+     layout: main-vertical-flipped
+     panes:
+       - rails s -p 3002
+       - rails c
+       - git status

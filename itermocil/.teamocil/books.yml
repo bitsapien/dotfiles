@@ -1,0 +1,8 @@
+windows:
+   - name: books
+     root: ~/projects/apnabooks/apnabooks-app
+     layout: main-vertical-flipped
+     panes:
+       - rails s -p 3003
+       - rails c
+       - git status

@@ -1,0 +1,10 @@
+windows:
+  - name: discourse
+    root: ~/mysites/discourse
+    layout: even-horizontal
+    panes:
+      - commands:
+        - vim .
+      - commands:
+        - vagrant up
+        - vagrant ssh

@@ -1,10 +1,13 @@
 windows:
   - name: discourse
     root: ~/mysites/discourse
-    layout: even-horizontal
+    layout: main-vertical
     panes:
       - commands:
         - vim .
       - commands:
         - vagrant up
-        - vagrant ssh
+        - vagrant ssh -c 'rails s -b 0.0.0.0'
+      - commmands:
+	- vagrant ssh
+

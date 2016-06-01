@@ -1,6 +1,6 @@
 windows:
    - name: books
-     root: ~/projects/apnabooks/apnabooks-app
+     root: ~/projects/apnabooks/apnabooks
      layout: main-vertical-flipped
      panes:
        - rails s -p 3003

@@ -1,0 +1,14 @@
+windows:
+  - name: toddler
+    root: ~/projects/toddler
+    layout: tiled
+    panes:
+      - commands:
+        - vi .
+      - commands:
+        - cd test
+        - vi .
+      - commands:
+        - irb
+      - commands:
+        - git status

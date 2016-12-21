@@ -4,15 +4,12 @@ windows:
     layout: tiled
     panes:
       - commands:
-        - rvm use '2.2.4'
         - git status
         - subl .
       - commands:
-        - rvm use '2.2.4'
         - rails c
       - commands:
         - mysql.server start
-        - rvm use '2.2.4'
         - foreman start
       - commands:
         - tail -f log/development.log

@@ -3,4 +3,6 @@
 
 * Install Brew
 * Install "brew install the_silver_searcher"
+* brew install tree
+* brew install moreutils
 

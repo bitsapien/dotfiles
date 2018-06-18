@@ -56,3 +56,9 @@ git_clone $PATHOGEN_AIRLINE_NAME $PATHOGEN_AIRLINE
 git_clone $PATHOGEN_FZF_NAME $PATHOGEN_FZF
 git_clone $PATHOGEN_POLYGLOT_NAME $PATHOGEN_POLYGLOT
 
+
+
+brew install the_silver_searcher
+brew install moreutils
+brew install tree
+brew install

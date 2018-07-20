@@ -94,3 +94,11 @@ autocmd BufWritePre *.rb %s/\s\+$//e
 
 " notes
 "let g:notes_directories = ['~/Documents/Notes', '~/Dropbox/Notes']
+let test#ruby#minitest#options = '--fail-fast'
+
+" annoying beeps when you keep Shift pressed for too long, and end up pressing
+" W instead of w for save
+command! W  write
+:command WQ wq
+:command Wq wq
+

@@ -9,7 +9,11 @@ PATHOGEN_AIRLINE="git://github.com/bling/$PATHOGEN_AIRLINE_NAME.git"
 PATHOGEN_FZF_NAME="fzf"
 PATHOGEN_FZF="git://github.com/junegunn/$PATHOGEN_FZF_NAME.git"
 PATHOGEN_POLYGLOT_NAME="vim-polyglot"
-PATHOGEN_POLYGLOT="git@github.com:sheerun/vim-polyglot.git"
+PATHOGEN_POLYGLOT="git@github.com:sheerun/$PATHOGEN_POLYGLOT_NAME.git"
+PATHOGEN_ACK_NAME="ack.vim"
+PATHOGEN_ACK="git@github.com:mileszs/$PATHOGEN_ACK_NAME.git"
+PATHOGEN_VIM_TEST="vim-test"
+PATHOGEN_VIM_TEST="git@github.com:janko-m/$PATHOGEN_VIM_TEST.git"
 
 git_clone() {
  if [ ! -d $1 ]; then
@@ -38,8 +42,11 @@ SOURCE_CODE_PRO_FOR_POWERLINE="https://github.com/powerline/fonts/blob/master/So
 open $SOURCE_CODE_PRO_FOR_POWERLINE
 # install auto-suggestions
 brew install zsh-autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+brew install zsh-syntax-highlighting
+echo "source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $HOME/.zshrc
+echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $HOME/.zshrc
 echo "Change font in iTerm 2 > Preferences > Profiles > Text"
+echo "To enable word jumps: iTerm → Preferences → Profiles → Keys → Load Preset... → Natural Text Editing → Boom! Head explodes"
 source $HOME/.zshrc
 
 
@@ -55,10 +62,10 @@ git_clone $PATHOGEN_CTRLP_NAME $PATHOGEN_CTRLP
 git_clone $PATHOGEN_AIRLINE_NAME $PATHOGEN_AIRLINE
 git_clone $PATHOGEN_FZF_NAME $PATHOGEN_FZF
 git_clone $PATHOGEN_POLYGLOT_NAME $PATHOGEN_POLYGLOT
-
+git_clone $PATHOGEN_ACK_NAME $PATHOGEN_ACK
+git_clone $PATHOGEN_VIM_TEST_NAME $PATHOGEN_VIM_TEST
 
 
 brew install the_silver_searcher
 brew install moreutils
 brew install tree
-brew install

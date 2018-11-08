@@ -102,8 +102,48 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use bash-completion, if available
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
     . /usr/share/bash-completion/bash_completion
-eval "$(jump shell zsh)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 
 gcbl() {
   git commit -m "[`git symbolic-ref --short HEAD`] $1"
 }
+
+# gets who is using the said port
+port-busy() {
+  netstat -vanp tcp | grep $1
+}
+
+
+# refactor
+refactor() {
+  find $1 -type f -print0 | xargs -0 -n 1 sed -i -e 's/$2/$3/g'
+}
+
+# Git sync with master
+gsync() {
+  PRESENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+  if [ -z "$1" ]
+  then
+    SYNC_BRANCH="master"
+  else
+    SYNC_BRANCH=$1
+  fi
+
+  echo -n "Your branch $PRESENT_BRANCH is about to be synced with $SYNC_BRANCH"
+#  while read -r -n 1 -s answer; do
+#    if [[ $answer = [Yy] ]]; then
+      git checkout $SYNC_BRANCH && git pull origin $SYNC_BRANCH && git checkout $PRESENT_BRANCH && git rebase $SYNC_BRANCH
+#      break
+#    fi
+#  done
+}
+

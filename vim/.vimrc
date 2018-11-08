@@ -21,7 +21,8 @@ set magic
 set wrap
 set background=light
 let g:solarized_termcolors=256
-colorscheme solarized 
+" colorscheme solarized 
+colorscheme mojave
 set ignorecase
 set smartcase
 set smartindent
@@ -49,7 +50,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " ctrl-p optimization, use the_silver_searcher and cache results
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" --ignore=node_modules/'
  endif
 
  " vim take a long time to open ruby files : 
@@ -87,7 +88,9 @@ endif
 set tabstop=2
 set shiftwidth=2
 set expandtab
+" remove trailing whitespaces`
 autocmd BufWritePre *.rb %s/\s\+$//e
+autocmd BufWritePre *.js %s/\s\+$//e
 
 " ruby foldable blocks
 "let g:ruby_fold_lines_limit = 100
@@ -102,3 +105,5 @@ command! W  write
 :command WQ wq
 :command Wq wq
 
+" TODO: commentary
+" TODO: remap esc to caps lock

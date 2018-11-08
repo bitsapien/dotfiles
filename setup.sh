@@ -12,8 +12,11 @@ PATHOGEN_POLYGLOT_NAME="vim-polyglot"
 PATHOGEN_POLYGLOT="git@github.com:sheerun/$PATHOGEN_POLYGLOT_NAME.git"
 PATHOGEN_ACK_NAME="ack.vim"
 PATHOGEN_ACK="git@github.com:mileszs/$PATHOGEN_ACK_NAME.git"
-PATHOGEN_VIM_TEST="vim-test"
+PATHOGEN_VIM_TEST_NAME="vim-test"
 PATHOGEN_VIM_TEST="git@github.com:janko-m/$PATHOGEN_VIM_TEST.git"
+PATHOGEN_VIM_COMMENTARY_NAME="vim-commentary"
+PATHOGEN_VIM_COMMENTARY="git@github.com:tpope/$PATHOGEN_VIM_COMMENTARY_NAME.git"
+
 
 git_clone() {
  if [ ! -d $1 ]; then
@@ -64,6 +67,7 @@ git_clone $PATHOGEN_FZF_NAME $PATHOGEN_FZF
 git_clone $PATHOGEN_POLYGLOT_NAME $PATHOGEN_POLYGLOT
 git_clone $PATHOGEN_ACK_NAME $PATHOGEN_ACK
 git_clone $PATHOGEN_VIM_TEST_NAME $PATHOGEN_VIM_TEST
+git_clone $PATHOGEN_VIM_COMMENTARY_NAME $PATHOGEN_VIM_COMMENTARY
 
 
 brew install the_silver_searcher

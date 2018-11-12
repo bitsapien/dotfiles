@@ -147,3 +147,4 @@ gsync() {
 #  done
 }
 
+export BYOBU_PREFIX=/usr/local

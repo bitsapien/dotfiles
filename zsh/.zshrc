@@ -148,3 +148,4 @@ gsync() {
 }
 
 export BYOBU_PREFIX=/usr/local
+export PATH=$PATH:/Users/rahulc/gitdisk/tw/babylon-health/scripts/bin

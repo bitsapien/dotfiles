@@ -116,3 +116,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 runtime macros/matchit.vim
+
+" Rails routes to controller action
+"function! RouteController(path)
+"  let cwd = getcwd()
+"  let path = a:path
+"  :new "" . cwd . "app/controllers/" . path . "_controller.rb"
+"endfunction

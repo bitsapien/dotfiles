@@ -123,3 +123,7 @@ runtime macros/matchit.vim
 "  let path = a:path
 "  :new "" . cwd . "app/controllers/" . path . "_controller.rb"
 "endfunction
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd vimenter * NERDTree

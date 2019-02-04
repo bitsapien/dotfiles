@@ -125,5 +125,11 @@ runtime macros/matchit.vim
 "endfunction
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree
+"map <C-n> :NERDTreeToggle<CR>
+"autocmd vimenter * NERDTree
+
+" file jumping
+"set path+=**
+
+" tag jumping
+"command! MakeTags !ctags -R .

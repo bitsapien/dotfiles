@@ -125,11 +125,19 @@ runtime macros/matchit.vim
 "endfunction
 
 " NERDTree
-"map <C-n> :NERDTreeToggle<CR>
-"autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd vimenter * NERDTree
 
 " file jumping
-"set path+=**
+set path+=**
 
 " tag jumping
-"command! MakeTags !ctags -R .
+command! MakeTags !ctags -R .
+
+" show the commands you type
+set showcmd
+
+nnoremap ,jit :-1read $HOME/.vim/.jestit.js<CR>3wi
+nnoremap ,jd :-1read $HOME/.vim/.jest.js<CR>3wi
+nnoremap ,rtl :-1read $HOME/.vim/.react-testing-library.js<CR>:5<CR>ci'
+

@@ -5,7 +5,7 @@ inoremap jk <ESC>
 filetype plugin indent on
 syntax on
 set encoding=utf-8
-set number
+set number! relativenumber!
 set autoindent
 set showmatch
 vnoremap . :norm.<CR>

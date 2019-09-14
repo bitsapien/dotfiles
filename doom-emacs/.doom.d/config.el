@@ -8,8 +8,9 @@
       projectile-project-search-path '("~/gitdisk/tw/") ;; Projectile search paths 🔍
       indent-tabs-mode nil                              ;; No Tabs ⌨️
       tab-width 2                                       ;; Cause tab widths matter
-      truncate-lines t                                  ;; Word wrap at end of screen
+      truncate-lines t
       )
+(set-default 'truncate-lines t)                         ;; Word wrap at end of screen
 
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))

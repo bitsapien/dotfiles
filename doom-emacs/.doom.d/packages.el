@@ -10,3 +10,7 @@
 (package! dockerfile-mode)
 (package! terraform-mode)
 (package! avy)
+(package! zoom)
+(package! rust-mode)
+(package! inf-ruby)
+(package! easy-hugo)

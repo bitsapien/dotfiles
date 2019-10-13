@@ -1,0 +1,36 @@
+echo "Load shell commands"
+
+find-file() {
+  find . -name "$1" -type f
+}
+
+function ckdir {
+  command mkdir $1 && cd $1
+}
+
+# refactor
+refactor() {
+  find $1 -type f -print0 | xargs -0 -n 1 sed -i -e 's/$2/$3/g'
+}
+# refactor 2.0
+# caution, use this only with git
+agr() { ag "$2" -0 -l "$1" | xargs -0 perl -pi -e "s/$2/$3/g"; }
+
+# gets who is using the said port
+port-busy() {
+  netstat -vanp tcp | grep $1
+}
+
+de() {
+  doom refresh && emacs
+}
+
+# Aliases for common websites
+al() {
+  $HOME/aliaser "${1}" "${2}"
+}
+
+# bash timer
+timer() {
+  sleep $[${1}*60] && say "${1} minutes are over" && which terminal-notifier && terminal-notifier -message "${1} minutes are over"
+}

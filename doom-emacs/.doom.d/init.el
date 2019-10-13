@@ -174,3 +174,47 @@
        ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#21242b" "#ff665c" "#7bc275" "#FCCE7B" "#51afef" "#C57BDB" "#5cEfFF" "#bbc2cf"])
+ '(custom-enabled-themes (quote (doom-solarized-dark)))
+ '(custom-safe-themes
+   (quote
+    ("7f74a3b9a1f5e3d31358b48b8f8a1154aab2534fae82c9e918fb389fca776788" "423435c7b0e6c0942f16519fa9e17793da940184a50201a4d932eafe4c94c92d" "fe76f3d5094967034192f6a505085db8db6deb0e135749d9a54dc488d6d3ee2f" "d6f04b6c269500d8a38f3fabadc1caa3c8fdf46e7e63ee15605af75a09d5441e" "66d53738cc824d0bc5b703276975581b8de2b903d6ce366cd62207b5dd6d3d13" "cdb3e7a8864cede434b168c9a060bf853eeb5b3f9f758310d2a2e23be41a24ae" "2878517f049b28342d7a360fd3f4b227086c4be8f8409f32e0f234d129cee925" "0d087b2853473609d9efd2e9fbeac088e89f36718c4a4c89c568dd1b628eae41" "001c2ff8afde9c3e707a2eb3e810a0a36fb2b466e96377ac95968e7f8930a7c5" "0fe9f7a04e7a00ad99ecacc875c8ccb4153204e29d3e57e9669691e6ed8340ce" "428754d8f3ed6449c1078ed5b4335f4949dc2ad54ed9de43c56ea9b803375c23" "5e0b63e0373472b2e1cf1ebcc27058a683166ab544ef701a6e7f2a9f33a23726" "70ed3a0f434c63206a23012d9cdfbe6c6d4bb4685ad64154f37f3c15c10f3b90" default)))
+ '(fci-rule-color "#62686E")
+ '(jdee-db-active-breakpoint-face-colors (cons "#1c1f24" "#51afef"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1c1f24" "#7bc275"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1c1f24" "#484854"))
+ '(objed-cursor-color "#ff665c")
+ '(vc-annotate-background "#242730")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#7bc275")
+    (cons 40 "#a6c677")
+    (cons 60 "#d1ca79")
+    (cons 80 "#FCCE7B")
+    (cons 100 "#f4b96e")
+    (cons 120 "#eda461")
+    (cons 140 "#e69055")
+    (cons 160 "#db8981")
+    (cons 180 "#d082ae")
+    (cons 200 "#C57BDB")
+    (cons 220 "#d874b0")
+    (cons 240 "#eb6d86")
+    (cons 260 "#ff665c")
+    (cons 280 "#d15e59")
+    (cons 300 "#a35758")
+    (cons 320 "#754f56")
+    (cons 340 "#62686E")
+    (cons 360 "#62686E")))
+ '(vc-annotate-very-old-color nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

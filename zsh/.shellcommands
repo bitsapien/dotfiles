@@ -1,5 +1,7 @@
 echo "Load shell commands"
 
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
 find-file() {
   find . -name "$1" -type f
 }

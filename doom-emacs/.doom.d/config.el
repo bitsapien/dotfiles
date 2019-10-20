@@ -23,14 +23,19 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-(setq easy-hugo-basedir "~/gitdisk/projects/blog/bitsapien/")                 ;; HUGO blog
-(setq easy-hugo-postdir "content/posts")
-(setq easy-hugo-url "https://bitsapien.dev/blog")
-(setq easy-hugo-sshdomain "bitsapien.dev")
-(setq easy-hugo-root "/var/www/blog/")
-(setq easy-hugo-previewtime "300")
-(define-key global-map (kbd "C-c C-e") 'easy-hugo)
-)
+;;(add-hook 'after-init-hook 'global-emojify-mode)       ;; Enable global emoji rendering :stuck_out_tongue_closed_eyes:
+(global-set-key (kbd "C-S-g") 'emojify-insert-emoji)    ;; Set key for inserting emoji
+
+  (setq easy-hugo-basedir "~/gitdisk/projects/blog/bitsapien/"
+        easy-hugo-postdir "content/posts"
+        easy-hugo-url "https://bitsapien.dev/blog"
+        easy-hugo-preview-url "http://127.0.0.1:1313/blog/posts"
+        easy-hugo-sshdomain "bitsapien.dev"
+        easy-hugo-root "/var/www/blog/"
+        easy-hugo-previewtime "300")
+;;(def-package! easy-hugo
+;;  :init
+;;  (set-evil-initial-state! 'easy-hugo-mode 'emacs))
 
 (def-package! org-super-agenda
   :after org-agenda

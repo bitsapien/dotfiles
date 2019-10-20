@@ -14,3 +14,7 @@
 (package! rust-mode)
 (package! inf-ruby)
 (package! easy-hugo)
+(package! ox-hugo)
+(package! emojify)
+(package! sx)
+(package! js-comint)

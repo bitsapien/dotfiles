@@ -18,3 +18,4 @@
 (package! emojify)
 (package! sx)
 (package! js-comint)
+(package! blacken)

@@ -1,0 +1,1 @@
+alias dlogin='container=$(docker ps | tail -n 1 | cut -b 1-12) && docker exec -it $container /bin/sh'

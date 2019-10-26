@@ -190,6 +190,7 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#1c1f24" "#7bc275"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1c1f24" "#484854"))
  '(objed-cursor-color "#ff665c")
+ '(python-shell-interpreter "python3")
  '(vc-annotate-background "#242730")
  '(vc-annotate-color-map
    (list
@@ -211,7 +212,9 @@
     (cons 320 "#754f56")
     (cons 340 "#62686E")
     (cons 360 "#62686E")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
+ ;; '(zoom-mode t nil (zoom))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

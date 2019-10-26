@@ -1,7 +1,7 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here
-(setq mac-option-key-is-meta nil                        ;; Remapping Meta to CMD
+(setq mac-option-key-is-meta t                        ;; Remapping Meta to CMD
       mac-command-key-is-meta t
       mac-command-modifier 'meta
       mac-option-modifier 'none
@@ -10,6 +10,7 @@
       tab-width 2                                       ;; Cause tab widths matter
       truncate-lines t
       global-visual-line-mode t                         ;; Why you no word wrap Emacs !
+      auto-revert-mode t                                ;; Refresh buffers on local disk changes
       )
 
 (custom-set-variables
@@ -22,6 +23,8 @@
 (add-hook 'org-shiftleft-final-hook 'windmove-left)
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
+
+(add-hook 'python-mode-hook 'blacken-mode)
 
 ;;(add-hook 'after-init-hook 'global-emojify-mode)       ;; Enable global emoji rendering :stuck_out_tongue_closed_eyes:
 (global-set-key (kbd "C-S-g") 'emojify-insert-emoji)    ;; Set key for inserting emoji

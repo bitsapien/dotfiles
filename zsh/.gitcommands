@@ -1,5 +1,3 @@
-echo "Load git commands"
-
 # Git sync with master
 gsync() {
   PRESENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
@@ -17,4 +15,18 @@ gsync() {
 #      break
 #    fi
 #  done
+}
+
+gitto() {
+    git config user.name "C Rahul"
+    git config user.email "rahulcht@thoughtworks.com"
+    git config core.sshCommand "ssh -i ~/.ssh/id_otto -F /dev/null"
+}
+
+sclone() {
+    name="${1}"
+    gitc ${name}
+
+    cd ${name}
+    gitto
 }

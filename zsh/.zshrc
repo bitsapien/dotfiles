@@ -140,6 +140,9 @@ export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Emacs
+export PATH="/usr/local/Cellar/emacs-plus/26.3/Emacs.app/Contents/MacOS/bin:$PATH"
+
 # So that shells don't cry
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8

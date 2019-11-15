@@ -20,3 +20,4 @@
 (package! js-comint)
 (package! blacken)
 (package! typescript-mode)
+(package! elixir-mode)

@@ -1,5 +1,7 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
+
+(load! "otto.el")
 ;; Place your private configuration here
 (setq mac-option-key-is-meta t                        ;; Remapping Meta to CMD
       mac-command-key-is-meta t
@@ -39,6 +41,12 @@
 ;;(def-package! easy-hugo
 ;;  :init
 ;;  (set-evil-initial-state! 'easy-hugo-mode 'emacs))
+
+
+
+;;; line 1
+
+;;; line 2
 
 (def-package! org-super-agenda
   :after org-agenda

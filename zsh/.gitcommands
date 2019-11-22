@@ -23,6 +23,12 @@ gitto() {
     git config core.sshCommand "ssh -i ~/.ssh/id_otto -F /dev/null"
 }
 
+gitmy() {
+    git config user.name "bitsapien"
+    git config user.email "bitsapien@gmail.com"
+    git config core.sshCommand "ssh -i ~/.ssh/bitsapien -F /dev/null"
+}
+
 sclone() {
     name="${1}"
     gitc ${name}

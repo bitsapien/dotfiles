@@ -16,4 +16,4 @@
    (concat "$HOME/aliaser gb "
            (car (last (butlast (split-string (read-directory-name "Project Name:") "/")))))))
 
-(global-set-key (kbd "C-S-g") 'open-github)
+(global-set-key (kbd "C-c g") 'open-github)

@@ -30,7 +30,10 @@
 
 ;;(add-hook 'after-init-hook 'global-emojify-mode)       ;; Enable global emoji rendering :stuck_out_tongue_closed_eyes:
 (global-set-key (kbd "C-S-g") 'emojify-insert-emoji)    ;; Set key for inserting emoji
-
+o
+;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
+(add-hook 'elixir-mode-hook
+          (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
   (setq easy-hugo-basedir "~/gitdisk/projects/blog/bitsapien/"
         easy-hugo-postdir "content/posts"
         easy-hugo-url "https://bitsapien.dev/blog"

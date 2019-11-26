@@ -36,3 +36,11 @@ sclone() {
     cd ${name}
     gitto
 }
+
+clone() {
+  others_path="$HOME/gitdisk/projects/others"
+  cd $others_path
+  project_name="$(echo $1  | cut -d : -f 2 | sed 's/\//__/g' | sed 's/\.git//g')"
+  git clone $1 $project_name 
+  cd $project_name 
+}

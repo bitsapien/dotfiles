@@ -21,3 +21,5 @@
 (package! blacken)
 (package! typescript-mode)
 (package! elixir-mode)
+(package! super-save)
+(package! rubocopfmt)

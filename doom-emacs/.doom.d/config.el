@@ -13,6 +13,7 @@
       truncate-lines t
       global-visual-line-mode t                         ;; Why you no word wrap Emacs !
       auto-revert-mode t                                ;; Refresh buffers on local disk changes
+      doom-theme 'doom-dracula                          ;; Set doom theme
       )
 
 (custom-set-variables
@@ -27,13 +28,14 @@
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
 (add-hook 'python-mode-hook 'blacken-mode)
+(add-hook 'ruby-mode-hook #'rubocopfmt-mode)
 
-;;(add-hook 'after-init-hook 'global-emojify-mode)       ;; Enable global emoji rendering :stuck_out_tongue_closed_eyes:
-(global-set-key (kbd "C-S-g") 'emojify-insert-emoji)    ;; Set key for inserting emoji
-o
+(add-hook 'after-init-hook 'global-emojify-mode)       ;; Enable global emoji rendering :stuck_out_tongue_closed_eyes:
+
 ;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
 (add-hook 'elixir-mode-hook
           (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+
   (setq easy-hugo-basedir "~/gitdisk/projects/blog/bitsapien/"
         easy-hugo-postdir "content/posts"
         easy-hugo-url "https://bitsapien.dev/blog"
@@ -69,3 +71,11 @@ o
                                          :tag "bo")))
   :config
   (org-super-agenda-mode))
+
+(defun clone-and-open-project ()
+  "Clones and opens project"
+  (interactive)
+  (shell-command-to-string (concat "clone " (read-string "Clone URL:")))
+)
+
+(global-set-key (kbd "C-M-p") 'clone-and-open-project)

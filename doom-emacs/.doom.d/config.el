@@ -1,7 +1,7 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
 
-(load! "otto.el")
+(load! "neptune.el")
 ;; Place your private configuration here
 (setq mac-option-key-is-meta t                        ;; Remapping Meta to CMD
       mac-command-key-is-meta t
@@ -71,6 +71,11 @@
                                          :tag "bo")))
   :config
   (org-super-agenda-mode))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . nil)
+   (elixir . t)))
 
 (defun clone-and-open-project ()
   "Clones and opens project"

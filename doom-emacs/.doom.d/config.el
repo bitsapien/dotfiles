@@ -14,7 +14,9 @@
       global-visual-line-mode t                         ;; Why you no word wrap Emacs !
       auto-revert-mode t                                ;; Refresh buffers on local disk changes
       doom-theme 'doom-dracula                          ;; Set doom theme
-      )
+     doom-font (font-spec :family "FuraCode Nerd Font" :size 12))
+(if (fboundp 'mac-auto-operator-composition-mode)
+      (mac-auto-operator-composition-mode))
 
 (custom-set-variables
  '(zoom-mode t))                                        ;; Zoom splits that are focussed

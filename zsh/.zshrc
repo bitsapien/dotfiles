@@ -151,5 +151,8 @@ export LANG=en_US.UTF-8
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
+
 # Uncomment for perf report
 # zprof

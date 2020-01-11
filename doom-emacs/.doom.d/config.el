@@ -86,3 +86,4 @@
 )
 
 (global-set-key (kbd "C-M-p") 'clone-and-open-project)
+(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)

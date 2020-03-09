@@ -2,6 +2,7 @@
 
 
 (load! "neptune.el")
+(load! "falaf.el")
 ;; Place your private configuration here
 (setq mac-option-key-is-meta t                        ;; Remapping Meta to CMD
       mac-command-key-is-meta t

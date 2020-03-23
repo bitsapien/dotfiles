@@ -22,3 +22,4 @@
 (package! super-save)
 (package! rubocopfmt)
 (package! ob-elixir)
+(package! groovy-mode)

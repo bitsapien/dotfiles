@@ -136,6 +136,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$PATH:$HOME/go/bin"
 # Python !
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
+# Java !
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

@@ -30,7 +30,7 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
-(add-hook 'python-mode-hook 'blacken-mode)
+;;(add-hook 'python-mode-hook 'blacken-mode)
 (add-hook 'ruby-mode-hook #'rubocopfmt-mode)
 
 (add-hook 'after-init-hook 'global-emojify-mode)       ;; Enable global emoji rendering :stuck_out_tongue_closed_eyes:

@@ -101,6 +101,9 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+echo "Backing up envs"
+env > ~/.env_backup
+
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use bash-completion, if available
@@ -121,6 +124,7 @@ export PATH=$PATH:$HOME/gitdisk/projects/flutter/bin
 
 # Load my custom commands
 for file in $HOME/gitdisk/projects/dotfiles/zsh/.*commands; do source $file; done
+export PATH="$PATH:$HOME/gitdisk/projects/dotfiles/bin"
 
 export BYOBU_PREFIX=/usr/local
 

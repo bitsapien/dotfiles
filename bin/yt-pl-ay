@@ -1,0 +1,4 @@
+#!/bin/bash
+
+vlc="/Applications/VLC.app/Contents/MacOS/VLC"
+youtube-dl -f $2 -o - "$1" | $vlc -

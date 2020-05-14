@@ -142,4 +142,8 @@ set showcmd
 nnoremap ,jit :-1read $HOME/.vim/.jestit.js<CR>3wi
 nnoremap ,jd :-1read $HOME/.vim/.jest.js<CR>3wi
 nnoremap ,rtl :-1read $HOME/.vim/.react-testing-library.js<CR>:5<CR>ci'
-let mapleader=" "
+" Which Key M-x alternative
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>

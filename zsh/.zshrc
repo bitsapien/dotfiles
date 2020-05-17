@@ -159,6 +159,6 @@ export LANG=en_US.UTF-8
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
-bindkey -v
+#bindkey -v
 # Uncomment for perf report
 # zprof

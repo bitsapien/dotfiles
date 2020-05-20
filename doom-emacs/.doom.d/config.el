@@ -30,6 +30,10 @@
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
 
+(setq org-todo-keywords
+      '((sequence "TODO" "SCHEDULED" "DOING" "DELEGATED" "|" "DONE")))
+
+
 ;;(add-hook 'python-mode-hook 'blacken-mode)
 (add-hook 'ruby-mode-hook #'rubocopfmt-mode)
 

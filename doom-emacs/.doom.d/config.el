@@ -43,7 +43,7 @@
 (add-hook 'elixir-mode-hook
           (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
-  (setq easy-hugo-basedir "~/gitdisk/projects/blog/bitsapien/"
+  (setq easy-hugo-basedir "~/gitdisk/projects/bitsapien-blog/"
         easy-hugo-postdir "content/posts"
         easy-hugo-url "https://bitsapien.dev/blog"
         easy-hugo-preview-url "http://127.0.0.1:1313/blog/posts"

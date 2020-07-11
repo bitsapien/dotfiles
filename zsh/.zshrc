@@ -148,6 +148,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Emacs
 export PATH="/usr/local/Cellar/emacs-plus/26.3/Emacs.app/Contents/MacOS/bin:$PATH"
+# Bram is an asshole ! vim -> nvim
+alias vi=nvim
+alias vim=nvim
+export EDITOR=nvim
 
 # So that shells don't cry
 export LC_ALL=en_US.UTF-8

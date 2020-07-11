@@ -22,7 +22,9 @@ set wrap
 set background=light
 let g:solarized_termcolors=256
 " colorscheme solarized 
-colorscheme mojave
+set termguicolors
+let ayucolor="mirage"
+colorscheme ayu
 set ignorecase
 set smartcase
 set smartindent

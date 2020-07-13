@@ -2,25 +2,34 @@ echo "Load shell commands"
 
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
-find-file() {
+newpost() {
+  blog_path="$HOME/gitdisk/projects/bitsapien-blog"
+  post_file=$(echo "$1" | awk '{print tolower($0)}') # Lowercase
+  post_file=${post_file// /-} # Replace spaces with hyphens
+  pushd "$blog_path" || return 
+  hugo new posts/"$post_file.md"
+  "$EDITOR" "$blog_path/content/posts/$post_file.md"
+}
+
+find_file() {
   find . -name "$1" -type f
 }
 
-function ckdir {
-  command mkdir $1 && cd $1
+ckdir() {
+  mkdir mkdir "$1" && cd "$1" || exit 
 }
 
 # refactor
 refactor() {
-  find $1 -type f -print0 | xargs -0 -n 1 sed -i -e 's/$2/$3/g'
+  find "$1" -type f -print0 | xargs -0 -n 1 sed -i -e "s/$2/$3/g"
 }
 # refactor 2.0
 # caution, use this only with git
 agr() { ag "$2" -0 -l "$1" | xargs -0 perl -pi -e "s/$2/$3/g"; }
 
 # gets who is using the said port
-port-busy() {
-  netstat -vanp tcp | grep $1
+port_busy() {
+  netstat -vanp tcp | grep "$1"
 }
 
 de() {
@@ -29,7 +38,7 @@ de() {
 
 # Aliases for common websites
 al() {
-  $HOME/aliaser "${1}" "${2}"
+  "$HOME/aliaser" "${1}" "${2}"
 }
 
 # bash timer

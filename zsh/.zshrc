@@ -148,6 +148,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Emacs
 export PATH="/usr/local/Cellar/emacs-plus/26.3/Emacs.app/Contents/MacOS/bin:$PATH"
+
+# vim iced
+export PATH=$PATH:$HOME/.vim/bundle/vim-iced/bin
+
 # Bram is an asshole ! vim -> nvim
 alias vi=nvim
 alias vim=nvim

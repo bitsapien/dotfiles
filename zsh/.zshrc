@@ -126,6 +126,9 @@ export PATH=$PATH:$HOME/gitdisk/projects/flutter/bin
 for file in $HOME/gitdisk/projects/dotfiles/zsh/.*commands; do source $file; done
 export PATH="$PATH:$HOME/gitdisk/projects/dotfiles/bin"
 
+# Fast access blogging
+source $HOME/gitdisk/projects/bitsapien-blog/scripts.sh
+
 export BYOBU_PREFIX=/usr/local
 
 export PATH="/Users/rahulc/Qt5.5.0/5.5/clang_64/bin/:$PATH"
@@ -150,16 +153,18 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/Cellar/emacs-plus/26.3/Emacs.app/Contents/MacOS/bin:$PATH"
 
 # vim iced
-export PATH=$PATH:$HOME/.vim/bundle/vim-iced/bin
+export PATH=$PATH:$HOME/.vim/plugged/vim-iced/bin
 
 # Bram is an asshole ! vim -> nvim
 alias vi=nvim
 alias vim=nvim
 export EDITOR=nvim
+export VISUAL=nvim
 
 # So that shells don't cry
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

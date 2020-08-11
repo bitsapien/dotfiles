@@ -6,7 +6,7 @@ newpost() {
   blog_path="$HOME/gitdisk/projects/bitsapien-blog"
   post_file=$(echo "$1" | awk '{print tolower($0)}') # Lowercase
   post_file=${post_file// /-} # Replace spaces with hyphens
-  pushd "$blog_path" || return 
+  pushd "$blog_path" || return
   hugo new posts/"$post_file.md"
   "$EDITOR" "$blog_path/content/posts/$post_file.md"
 }
@@ -16,7 +16,7 @@ find_file() {
 }
 
 ckdir() {
-  mkdir mkdir "$1" && cd "$1" || exit 
+  mkdir mkdir "$1" && cd "$1" || exit
 }
 
 # refactor
@@ -45,3 +45,7 @@ al() {
 timer() {
   sleep $[${1}*60] && say "${1} minutes are over" && which terminal-notifier && terminal-notifier -message "${1} minutes are over"
 }
+
+# make bat usable
+alias cat="bat -p"
+

@@ -41,10 +41,20 @@ al() {
   "$HOME/aliaser" "${1}" "${2}"
 }
 
+# offline jwt decode
+djwt() {
+  jwt `pbpaste` | python -m json.tool | bat -p -ljson
+}
+
+djson() {
+  pbpaste | python -m json.tool | bat -p -ljson
+}
+
 # bash timer
 timer() {
   sleep $[${1}*60] && say "${1} minutes are over" && which terminal-notifier && terminal-notifier -message "${1} minutes are over"
 }
+
 
 # make bat usable
 alias cat="bat -p"

@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+const jwtDecode = (jwt) => console.log(Buffer.from((process.argv.slice(2)[0]).split(".")[1], "base64").toString("utf-8"));
+jwt = process.argv.slice(2)[0]
+
+jwtDecode(jwt)
+
+
+

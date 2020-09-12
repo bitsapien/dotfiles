@@ -1,9 +1,5 @@
-## Steps to setup the config file
+## Setup the config file
 
-* Install pathogen (vim plugin manager)
+```bash
+ln -sf `pwd`/vim/.vimrc ~/.vimrc
 ```
-cd ~/.vim/bundle
-git clone https://github.com/kien/ctrlp.vim
-git clone https://github.com/bling/vim-airline
-```
-* `cd ~ && ln -sf configurations/vim/.vimrc .vimrc`

@@ -499,3 +499,10 @@ endif
 noremap <C-p> :Files<CR>
 noremap <leader><CR> :Files<CR>
 noremap <C-o> :GFiles<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Terminal in VIM
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Bring back the nice 'esc' key to shift to normal mode
+tnoremap <Esc> <C-\><C-n>

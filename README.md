@@ -3,4 +3,4 @@
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/bitsapien/dotfiles/master/setup.sh)"`
 
 ### My workstation
-![](./img/workstation-cropped.png)
+![](https://github.com/bitsapien/dotfiles/raw/master/img/workstation-cropped.jpg)

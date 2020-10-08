@@ -59,3 +59,14 @@ timer() {
 # make bat usable
 alias cat="bat -p"
 
+# Search files using rg
+alias rgf='rg --files | rg'
+
+# Add pwd to zsh history
+function zshaddhistory() {
+  if [[ "${1}" =~ "vi " ]];
+  then
+    print -sr "${1%%$'\n'} ### ${PWD}"
+    fc -p
+  fi
+}

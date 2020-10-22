@@ -46,6 +46,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Neovim on the browser
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 
 " Lispy

@@ -64,7 +64,7 @@ alias rgf='rg --files | rg'
 
 # Add pwd to zsh history
 function zshaddhistory() {
-  if [[ "${1}" =~ "vi " ]];
+  if [[ "${1}" =~ "vi " ]] && ! [[ "${1}" =~ "###" ]];
   then
     print -sr "${1%%$'\n'} ### ${PWD}"
     fc -p

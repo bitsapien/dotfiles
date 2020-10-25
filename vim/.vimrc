@@ -508,3 +508,8 @@ noremap <C-o> :GFiles<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bring back the nice 'esc' key to shift to normal mode
 tnoremap <Esc> <C-\><C-n>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Put Date into file
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command Date execute "put =strftime('%c')"

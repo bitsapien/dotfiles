@@ -1,0 +1,29 @@
+
+# ===========================================================================
+# Initial config
+# ===========================================================================
+export PROJECT_HOME=$HOME/gitdisk/projects
+
+# ===========================================================================
+# So that shells don't cry
+# ===========================================================================
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# ===========================================================================
+# Default XDG configs
+# Source: https://wiki.archlinux.org/index.php/XDG_Base_Directory
+# ===========================================================================
+export XDG_CONFIG_HOME=$PROJECT_HOME/config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.data
+export XDG_RUNTIME_DIR=$HOME/.runtime
+export XDG_DATA_DIRS=/usr/local/share:/usr/share
+export XDG_CONFIG_DIRS=/etc/xdg
+
+# ===========================================================================
+# Default editor
+# ===========================================================================
+export EDITOR=nvim
+export VISUAL=nvim
+

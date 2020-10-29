@@ -1,5 +1,5 @@
-echo "Load ruby commands"
-
+# disabling this for now
+return 0
 # update the current rails project
 update() {
   git pull origin && spring stop && bundle && bundle exec rake db:migrate db:test:prepare

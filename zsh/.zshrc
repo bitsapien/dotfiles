@@ -1,142 +1,138 @@
-# Uncomment for perf report
-# zmodload zsh/zprof
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-  export GIT_EDITOR='vim'
-else
-  export EDITOR='mvim'
-  export GIT_EDITOR='vim'
-fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+# Personal Zsh configuration file. It is strongly recommended to keep all
+# shell customization and configuration (including exported environment
+# variables such as PATH) in this file or in files source by it.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Documentation: https://github.com/romkatv/zsh4humans/blob/v4/README.md.
 
-echo "Backing up envs"
+# Periodic auto-update on Zsh startup: 'ask' or 'no'.
+zstyle ':z4h:'                auto-update      'ask'
+# Ask whether to auto-update this often; has no effect if auto-update is 'no'.
+zstyle ':z4h:'                auto-update-days '28'
+
+# Keyboard type: 'mac' or 'pc'.
+zstyle ':z4h:bindkey'         keyboard         'mac'
+# When fzf menu opens on TAB, another TAB moves the cursor down ('tab:down')
+# or accepts the selection and triggers another TAB-completion ('tab:repeat')?
+zstyle ':z4h:fzf-complete'    fzf-bindings     'tab:down'
+# When fzf menu opens on Shift+Down, TAB moves the cursor down ('tab:down')
+# or accepts the selection and triggers another Shift+Down ('tab:repeat')?
+zstyle ':z4h:cd-down'         fzf-bindings     'tab:down'
+# Right-arrow key accepts one character ('partial-accept') from
+# command autosuggestions or the whole thing ('accept')?
+zstyle ':z4h:autosuggestions' forward-char     'accept'
+
+# Send these files over to the remote host when connecting over ssh.
+# Multiple files can be listed here.
+zstyle ':z4h:ssh:*'           send-extra-files '~/.iterm2_shell_integration.zsh'
+# Disable automatic teleportation of z4h over ssh when connecting to some-host.
+# This makes `ssh some-host` equivalent to `command ssh some-host`.
+zstyle ':z4h:ssh:some-host'   passthrough      'yes'
+
+# Move the cursor to the end when Up/Down fetches a command from history?
+zstyle ':zle:up-line-or-beginning-search'   leave-cursor 'yes'
+zstyle ':zle:down-line-or-beginning-search' leave-cursor 'yes'
+
+# Clone additional Git repositories from GitHub.
+#
+# This doesn't do anything apart from cloning the repository and keeping it
+# up-to-date. Cloned files can be used after `z4h init`. This is just an
+# example. If you don't plan to use Oh My Zsh, delete this line.
+z4h install ohmyzsh/ohmyzsh || return
+
+# Install or update core components (fzf, zsh-autosuggestions, etc.) and
+# initialize Zsh. After this point console I/O is unavailable until Zsh
+# is fully initialized. Everything that requires user interaction or can
+# perform network I/O must be done above. Everything else is best done below.
+z4h init || return
+
+# Export environment variables.
+export GPG_TTY=$TTY
+
+# Extend PATH.
+path=(~/bin $path)
+
+# Use additional Git repositories pulled in with `z4h install`.
+#
+# This is just an example that you should delete. It does nothing useful.
+z4h source $Z4H/ohmyzsh/ohmyzsh/lib/diagnostics.zsh
+z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/emoji-clock/emoji-clock.plugin.zsh
+fpath+=($Z4H/ohmyzsh/ohmyzsh/plugins/supervisor)
+
+# Source additional local files if they exist.
+z4h source ~/.iterm2_shell_integration.zsh
+
+# Define key bindings.
+z4h bindkey undo Ctrl+/  # undo the last command line change
+z4h bindkey redo Alt+/   # redo the last undone command line change
+
+z4h bindkey z4h-cd-back    Shift+Left   # cd into the previous directory
+z4h bindkey z4h-cd-forward Shift+Right  # cd into the next directory
+z4h bindkey z4h-cd-up      Shift+Up     # cd into the parent directory
+z4h bindkey z4h-cd-down    Shift+Down   # cd into a child directory
+
+# Autoload functions.
+autoload -Uz zmv
+
+# Define functions and completions.
+function md() { [[ $# == 1 ]] && mkdir -p -- "$1" && cd -- "$1" }
+compdef _directories md
+
+# Replace `ssh` with `z4h ssh` to automatically teleport z4h to remote hosts.
+function ssh() { z4h ssh "$@" }
+
+# Define named directories: ~w <=> Windows home directory on WSL.
+[[ -n $z4h_win_home ]] && hash -d w=$z4h_win_home
+
+# Define aliases.
+alias tree='tree -a -I .git'
+
+# Add flags to existing aliases.
+alias ls="${aliases[ls]:-ls} -A"
+
+# Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
+setopt glob_dots     # no special treatment for file names with a leading dot
+setopt no_auto_menu  # require an extra TAB press to open the completion menu
+
+
+#############################################################################
+# CUSTOM CONFIGURATION
+#############################################################################
+
+#############################################################################
+# Backup ENVs
+#############################################################################
 env > ~/.env_backup
 
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use bash-completion, if available
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
+#############################################################################
+# bitsapien's envs
+#############################################################################
+export CONFIG_HOME=$HOME/dotfiles
+source $CONFIG_HOME/env
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh --no-use"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
-export PATH=$PATH:$HOME/gitdisk/projects/flutter/bin
+#############################################################################
+# bitsapien's commands loader
+#############################################################################
+for file in $CONFIG_HOME/zsh/.*commands; do source $file; done
+export PATH="$PATH:$CONFIG_HOME/bin"
+
+#############################################################################
+# Fast access blogging and note taking
+#############################################################################
+source $PROJECT_HOME/bitsapien-blog/scripts.sh
+
+#############################################################################
+# Company/Project I'm currently working with
+#############################################################################
+[ -f "$HOME/.zshrc_client" ] && source "$HOME/.zshrc_client"
+
+#############################################################################
+# Auto Jump
+#############################################################################
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-# Otto psw
-[ -f "$HOME/.ottopswrc" ] && source "$HOME/.ottopswrc"
-[ -f "$HOME/.zshrc_psw_local" ] && source "$HOME/.zshrc_psw_local"
-
-# Load my custom commands
-for file in $HOME/gitdisk/projects/dotfiles/zsh/.*commands; do source $file; done
-export PATH="$PATH:$HOME/gitdisk/projects/dotfiles/bin"
-
-# Fast access blogging
-source $HOME/gitdisk/projects/bitsapien-blog/scripts.sh
-
-export BYOBU_PREFIX=/usr/local
-
-export PATH="/Users/rahulc/Qt5.5.0/5.5/clang_64/bin/:$PATH"
-
-[[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
-
-# Doom Emacs !
-export PATH="$HOME/.emacs.d/bin/:$PATH"
+#############################################################################
+# Language specific
+#############################################################################
 # Rust !
 export PATH="$HOME/.cargo/bin:$PATH"
 # GO !
@@ -145,33 +141,50 @@ export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/Library/Python/2.7/bin"
 # Java !
 export JAVA_HOME=$(/usr/libexec/java_home)
+# Node12
+alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
+export NODE_ENV=development
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+# Rust
+source $HOME/.cargo/env
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Emacs
-export PATH="/usr/local/Cellar/emacs-plus/26.3/Emacs.app/Contents/MacOS/bin:$PATH"
-
+#############################################################################
+# Vim : Bram is an asshole ! vim -> nvim
+#############################################################################
+alias vi=nvim
+alias vim=nvim
 # vim iced
 export PATH=$PATH:$HOME/.vim/plugged/vim-iced/bin
 
-# Bram is an asshole ! vim -> nvim
-alias vi=nvim
-alias vim=nvim
-export EDITOR=nvim
-export VISUAL=nvim
+#############################################################################
+# Emacs
+#############################################################################
+export PATH="/usr/local/Cellar/emacs-plus/26.3/Emacs.app/Contents/MacOS/bin:$PATH"
+# Doom Emacs !
+export PATH="$HOME/.emacs.d/bin/:$PATH"
 
-# So that shells don't cry
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+#############################################################################
+# Helm
+#############################################################################
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
 
+#############################################################################
+# iTerm2 Shell Integration
+# ------------------------
+# iTerm2 may be integrated with the unix shell so that it can keep track of
+# your command history, current working directory, host name, and more—even
+# over ssh
+#############################################################################
+test -e /Users/rahulc/.iterm2_shell_integration.zsh && \
+  source /Users/rahulc/.iterm2_shell_integration.zsh || true
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+#############################################################################
+# Prettier cat 😻
+#############################################################################
+alias cat="bat -p"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
-#bindkey -v
-# Uncomment for perf report
-# zprof
+#############################################################################
+# oh-my-zsh aliasing
+#############################################################################
+z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/git/git.plugin.zsh
+z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/common-aliases/common-aliases.plugin.zsh

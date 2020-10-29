@@ -46,9 +46,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Neovim on the browser
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-
 
 " Lispy
 Plug 'liquidz/vim-iced', {'for': 'clojure'}
@@ -513,3 +513,14 @@ tnoremap <Esc> <C-\><C-n>
 " => Put Date into file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command Date execute "put =strftime('%c')"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Edit vimrc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command EditConfig execute ":e $CONFIG_HOME/vim/.vimrc"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Edit zshrc
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command EditShell execute ":e $CONFIG_HOME/zsh/.zshrc"

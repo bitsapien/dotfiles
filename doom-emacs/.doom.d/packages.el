@@ -1,4 +1,4 @@
-;; -*- no-byte-compile: t; -*-
+;dracula; -*- no-byte-compile: t; -*-
 ;;; .doom.d/packages.el
 
 ;;; Examples:

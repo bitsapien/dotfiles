@@ -25,6 +25,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Something I don't understand, but good syntax highlighting
+" Plug 'nvim-treesitter/nvim-treesitter' " Not stable until Neovim 0.5
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -36,7 +40,7 @@ Plug 'luochen1990/rainbow'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
-Plug 'easymotion/vim-easymotion'
+"Plug 'easymotion/vim-easymotion'
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'hashivim/vim-terraform'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -45,7 +49,11 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+" Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" space-vim kind keymapping display
+Plug 'liuchengxu/vim-which-key'
 
 " Neovim on the browser
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -59,6 +67,12 @@ Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
 
 " Colorscheme
 Plug 'ayu-theme/ayu-vim'
+
+" org mode
+Plug 'jceb/vim-orgmode'
+Plug 'vim-scripts/utl.vim'
+Plug 'mattn/calendar-vim'
+Plug 'vim-scripts/SyntaxRange'
 
 call plug#end()
 
@@ -80,6 +94,8 @@ au FocusGained,BufEnter * checktime
 " like <leader>w saves the current file
 let mapleader = " "
 let g:mapleader = " "
+let maplocalleader = " "
+let g:maplocalleader = " "
 nnoremap <SPACE> <Nop>
 
 " Fast saving
@@ -155,7 +171,6 @@ set foldcolumn=1
 
 " Line numbering and width
 set number
-set relativenumber
 set clipboard=unnamed
 set clipboard+=unnamedplus
 set updatetime=250
@@ -499,7 +514,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " shortcut for opening files
 noremap <C-p> :Files<CR>
-noremap <leader><CR> :Files<CR>
+"noremap <leader><CR> :Files<CR>
 noremap <C-o> :GFiles<CR>
 
 
@@ -520,7 +535,98 @@ command Date execute "put =strftime('%c')"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command EditConfig execute ":e $CONFIG_HOME/vim/.vimrc"
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Edit zshrc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command EditShell execute ":e $CONFIG_HOME/zsh/.zshrc"
+
+command Reload execute ":source $MYVIMRC"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Conqueror of Completion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to
+" noticeable delays and poor user experience.
+set updatetime=300
+
+" Use tab for trigger completion with characters ahead and
+" navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is
+" not mapped by other plugin before putting this into your
+" config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.act
+
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+" Note coc#float#scroll works on neovim >= 0.4.3 or
+" vim >= 8.2.0750
+nnoremap <nowait><expr> <C-f>
+      \ coc#float#has_scroll() ? coc#float#scroll(1) :
+      \ "\<C-f>"
+nnoremap <nowait><expr> <C-b>
+      \ coc#float#has_scroll() ? coc#float#scroll(0) :
+      \ "\<C-b>"
+inoremap <nowait><expr> <C-f>
+      \ coc#float#has_scroll() ?
+      \ "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-b>
+      \ coc#float#has_scroll() ?
+      \ "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use <c-space> to trigger completion.
+"inoremap <silent><expr> <c-space> coc#refresh()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Switch on Spell check
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command SpellCheck execute ":setlocal spell spelllang=en_us"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Typewriter mode, wrap at 80th character
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command Typewriter execute ":set tw=80 | :set fo+=t"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => This is for vim-which-key
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader> :WhichKeyVisual '<Space>'<CR>
+set timeoutlen=500
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => org mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:org_heading_shade_leading_stars = 0
+let g:org_todo_keywords = ['TODO', '|', 'DONE']

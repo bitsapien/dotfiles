@@ -95,8 +95,11 @@ setopt no_auto_menu  # require an extra TAB press to open the completion menu
 
 
 #############################################################################
+#############################################################################
 # CUSTOM CONFIGURATION
 #############################################################################
+#############################################################################
+
 
 #############################################################################
 # Backup ENVs
@@ -108,6 +111,11 @@ env > ~/.env_backup
 #############################################################################
 export CONFIG_HOME=$HOME/dotfiles
 source $CONFIG_HOME/env
+
+#############################################################################
+# Load `goto` bash completion, TODO: Move it to relevant folder later
+#############################################################################
+source $GOTO_DATA_PATH/completion.bash
 
 #############################################################################
 # bitsapien's commands loader
@@ -188,3 +196,4 @@ alias cat="bat -p"
 #############################################################################
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/git/git.plugin.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/common-aliases/common-aliases.plugin.zsh
+

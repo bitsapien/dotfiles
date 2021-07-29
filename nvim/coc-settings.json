@@ -1,0 +1,23 @@
+{
+	"languageserver": {
+		"terraform": {
+			"command": "terraform-lsp",
+			"filetypes": [
+				"terraform",
+				"tf"
+			],
+			"initializationOptions": {},
+			"settings": {}
+		}
+	},
+  "python.jediEnabled": false,
+  "javascript.suggestionActions.enabled": false,
+  "java.imports.gradle.wrapper.checksums": [{
+    "sha256": "e68185c8c0f67873dcd98916621870266a71584dfb0a2861d87d7077ebc39837",
+    "allowed": true
+  }],
+  "eslint": {
+    "alwaysShowStatus": true,
+    "autoFixOnSave": true
+  }
+}

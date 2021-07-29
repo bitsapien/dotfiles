@@ -152,9 +152,17 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # Node12
 alias node12='export PATH="/usr/local/opt/node@12/bin:$PATH"'
 export NODE_ENV=development
-export NODE_TLS_REJECT_UNAUTHORIZED=0
 # Rust
 source $HOME/.cargo/env
+# RVM - Ruby
+#rvm_prefix=/Users/rahulc
+#rvm_path=/Users/rahulc/.rvm
+#rvm_bin_path=/Users/rahulc/.rvm/bin
+#rvm_version=1.29.12 (latest)
+#GEM_HOME=/Users/rahulc/.rvm/gems/ruby-3.0.0
+#GEM_PATH=/Users/rahulc/.rvm/gems/ruby-3.0.0:/Users/rahulc/.rvm/gems/ruby-3.0.0@global
+#MY_RUBY_HOME=/Users/rahulc/.rvm/rubies/ruby-3.0.0
+#IRBRC=/Users/rahulc/.rvm/rubies/ruby-3.0.0/.irbrc
 
 #############################################################################
 # Vim : Bram is an asshole ! vim -> nvim
@@ -197,3 +205,4 @@ alias cat="bat -p"
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/git/git.plugin.zsh
 z4h source $Z4H/ohmyzsh/ohmyzsh/plugins/common-aliases/common-aliases.plugin.zsh
 
+export PATH="/usr/local/opt/openjdk@8/bin:$PATH" export PATH="/usr/local/opt/openjdk@8/bin:$PATH"

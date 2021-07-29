@@ -1,9 +1,22 @@
 #!/usr/bin/env node
 
-const jwtDecode = (jwt) => console.log(Buffer.from((process.argv.slice(2)[0]).split(".")[1], "base64").toString("utf-8"));
-jwt = process.argv.slice(2)[0]
+const jwtDecode = (jwt, blockIndex) => console.log(
+  Buffer.from(jwt.split('.')[blockIndex], 'base64').toString('utf-8')
+);
 
-jwtDecode(jwt)
+jwt = process.argv.slice(2)[0];
+block = process.argv.slice(2)[1]
+
+blockIndex = 1; // --payload
+switch(block) {
+  case "--header":
+    blockIndex = 0;
+  case  "--signature":
+    blockIndex = 2;
+}
+
+console.log(jwt, blockIndex)
+jwtDecode(jwt, blockIndex)
 
 
 

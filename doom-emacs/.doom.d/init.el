@@ -76,13 +76,10 @@
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        eval              ; run code, run (also, repls)
-       flycheck          ; tasing you for every semicolon you forget
-       flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
        (lookup           ; helps you navigate your code and documentation
         +docsets)        ; ...or in Dash docsets locally
        lsp
-       macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -149,6 +146,10 @@
        ;;web               ; the tubes
        ;;vala              ; GObjective-C
 
+       :checkers
+       spell
+       :os
+       macos
        :email
        ;;(mu4e +gmail)       ; WIP
        ;;notmuch             ; WIP
@@ -181,12 +182,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(python-shell-interpreter "python3")
- '(vc-annotate-very-old-color nil)
+ '(vc-annotate-very-old-color nil))
  ;; '(zoom-mode t nil (zoom))
- )
-(custom-set-faces
+
+(custom-set-faces)
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+

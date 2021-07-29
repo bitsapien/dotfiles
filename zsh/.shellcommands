@@ -44,3 +44,8 @@ function zshaddhistory() {
     fc -p
   fi
 }
+
+# tunnelblick connect
+function vpn() {
+  osascript -e "tell application \"/Applications/Tunnelblick.app\"" -e "connect \"${1}\"" -e "end tell"
+}

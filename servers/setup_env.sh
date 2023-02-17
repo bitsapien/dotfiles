@@ -3,7 +3,7 @@ sudo su
 # install packages
 for package_name in zsh git-core nginx neovim
 do 
-  apt install $package_name
+  apt install -y $package_name
 done
 
 # configure CLI

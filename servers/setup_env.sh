@@ -1,9 +1,15 @@
 sudo su
 
-for package_name in zsh git-core 
+# install packages
+for package_name in zsh git-core nginx neovim
 do 
-  echo $package_name
+  apt install $package_name
 done
+
+# configure CLI
+
+# configure editor
+
 #apt-get install zsh
 #apt-get install git-core
 #wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
